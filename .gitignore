@@ -1,3 +1,5 @@
 # pycache
-selenium_amazon_products\search_laptop_details\src\__pycache__
-html_scraping\src\__pycache__
+
+__pycache__/
+*.pyc
+*.pyo
