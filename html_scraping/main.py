@@ -5,19 +5,10 @@ from src import (
 )
 
 
-
-
-
-
-
-
-
-
 def main():
     client = httpx.Client()
     pagination_loop(client, headers)
 
     
-
 if __name__ == '__main__':
     main()
