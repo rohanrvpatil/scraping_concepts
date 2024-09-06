@@ -1,9 +1,4 @@
-# Tabular Data: CSV, Excel (XLS/XLSX), Google Sheets
-# Hierarchical/Nested Data: JSON, XML, YAML
-# Database: SQL
-# Big Data/Analytics: Parquet
-# Reports: PDF
-# Web Data: HTML
+# Functions to export data to .csv, .xlsx and .json formats
 
 import csv
 
