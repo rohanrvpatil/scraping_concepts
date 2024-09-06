@@ -8,7 +8,7 @@ from rich import print
 @dataclass
 class Product:
     name: str
-    sku: str
+    type: str
     price: str
     rating: str
 
@@ -16,20 +16,7 @@ class Product:
 class Response:
     body_html: HTMLParser
     next_page: dict
-    
-def pagination_loop(client, headers):
-    url="https://www.rei.com/c/downhill-ski-boots"
-    while True:
-        page = get_page(client, url, headers)
-        detail_page_loop(client, page, headers)
-        if page.next_page["href"] is False:
-            client.close()
-            break
-        else:
-            url=urljoin(url, page.next_page["href"])
-            print(url)
-        #print(page)
-        #print(parse_links(page.body_html))
+
 
 
 def get_page(client, URL, headers):
@@ -49,7 +36,11 @@ def extract_text(html, selector, index):
     
 def detail_page_loop(client, page, headers):
     base_url="https://www.rei.com/"
-    product_links=parse_links(page.body_html)
+    
+    html=page.body_html
+    a_tags=html.css("div#search-results > ul li > a")
+    product_links={a_tag.attrs["href"] for a_tag in a_tags} #set is denoted by {}. Used here to remove duplicates
+    
     for link in product_links:
         details_page=get_page(client, urljoin(base_url, link), headers)
         parse_details(details_page.body_html)
@@ -58,14 +49,10 @@ def detail_page_loop(client, page, headers):
 def parse_details(html):
     new_product=Product(
         name=extract_text(html, "h1#product-page-title",0),
-        sku=extract_text(html, "a.cdr-breadcrumb__link_15-1-0",0),
+        type=extract_text(html, "a.cdr-breadcrumb__link_15-1-0",0),
         price=extract_text(html, "span#buy-box-product-price.price-value.price-value--sale",0),
         rating=extract_text(html, "span.cdr-rating__number_15-1-0",0),
     )
     print(new_product)
 
-def parse_links(html):
-    a_tags=html.css("div#search-results > ul li > a")
-    return {a_tag.attrs["href"] for a_tag in a_tags}  #set is denoted by {}. Used here to remove duplicates
-    
     

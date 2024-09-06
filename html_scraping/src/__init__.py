@@ -3,5 +3,5 @@ from .config import (
 )
 
 from .scraping import (
-    get_page, parse_links, pagination_loop
+    get_page, detail_page_loop
 )
