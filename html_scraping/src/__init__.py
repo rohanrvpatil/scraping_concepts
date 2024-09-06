@@ -1,5 +1,5 @@
 from .config import (
-    headers, URL
+    headers, URL, Product, Response
 )
 
 from .scraping import (

@@ -1,4 +1,18 @@
+from dataclasses import dataclass
+from selectolax.parser import HTMLParser
 
+
+@dataclass
+class Product:
+    name: str
+    type: str
+    price: str
+    rating: str
+
+@dataclass
+class Response:
+    body_html: HTMLParser
+    next_page: dict
 
 URL="https://www.rei.com/c/downhill-ski-boots"
 

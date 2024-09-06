@@ -1,22 +1,11 @@
-import httpx
 from selectolax.parser import HTMLParser
-from dataclasses import dataclass
 from urllib.parse import urljoin
 
 from rich import print
 
-@dataclass
-class Product:
-    name: str
-    type: str
-    price: str
-    rating: str
-
-@dataclass
-class Response:
-    body_html: HTMLParser
-    next_page: dict
-
+from src import (
+    Product, Response
+)
 
 
 def get_page(client, URL, headers):
