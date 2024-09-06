@@ -4,8 +4,9 @@ from selectolax.parser import HTMLParser
 
 @dataclass
 class Product:
+    link: str
     name: str
-    type: str
+    product_id: str
     price: str
     rating: str
 

@@ -32,16 +32,23 @@ def detail_page_loop(client, page, headers):
     
     for link in product_links:
         details_page=get_page(client, urljoin(base_url, link), headers)
-        parse_details(details_page.body_html)
+        parse_details(urljoin(base_url, link),details_page.body_html)
         
     
-def parse_details(html):
-    new_product=Product(
+def parse_details(product_link, html):
+    from src import (
+        export_csv, export_xlsx, export_json
+    )
+    
+    new_product=Product (
+        link=product_link,
         name=extract_text(html, "h1#product-page-title",0),
-        type=extract_text(html, "a.cdr-breadcrumb__link_15-1-0",0),
-        price=extract_text(html, "span#buy-box-product-price.price-value.price-value--sale",0),
+        product_id=extract_text(html, "ol.cdr-breadcrumb__list_15-1-0 li:last-child a",0),
+        price=extract_text(html, "span#buy-box-product-price.price-value",0),
         rating=extract_text(html, "span.cdr-rating__number_15-1-0",0),
     )
-    print(new_product)
+    #print(new_product)
+    export_json(new_product)
+    
 
     
