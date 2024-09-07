@@ -21,17 +21,18 @@ def getProxies():
             pass
     return proxies
 
-def extract(proxy):
-    #this was for when we took a list into the function, without conc futures.
-    #proxy = random.choice(proxylist)
-    headers = {'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36'}
-    try:
-        #change the url to https://httpbin.org/ip that doesnt block anything
-        r = requests.get('https://httpbin.org/ip', headers=headers, proxies={'http' : proxy,'https': proxy}, timeout=1)
-        print(r.json(), r.status_code)
-    except requests.ConnectionError as err:
-        print(repr(err))
-    return proxy
+
+# def extract(proxy):
+#     #this was for when we took a list into the function, without conc futures.
+#     #proxy = random.choice(proxylist)
+#     headers = {'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36'}
+#     try:
+#         #change the url to https://httpbin.org/ip that doesnt block anything
+#         r = requests.get('https://httpbin.org/ip', headers=headers, proxies={'http' : proxy,'https': proxy}, timeout=1)
+#         print(r.json(), r.status_code)
+#     except requests.ConnectionError as err:
+#         print(repr(err))
+#     return proxy
 
 
 #print(len(proxylist))
