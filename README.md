@@ -4,33 +4,33 @@ This project covers all scraping concepts.
 
 ## basic_scrapy_rugshop:
 
-* **Website:** https://www.therugshopuk.co.uk/rugs-by-room/bedroom-rugs.html <br>
-* **Purpose:** Extracts product data of rugs <br>
-* **Fields extracted:** name, price, link <br>
-* **Scraping tool:** Scrapy <br>
-* **Libraries/Methods used:** selectors <br>
-* **Exported data:** [output.csv](https://github.com/rohanrvpatil/scraping_concepts/blob/main/basic_scrapy_rugshop/output.csv) <br>
+* **Website:** https://www.therugshopuk.co.uk/rugs-by-room/bedroom-rugs.html
+* **Purpose:** Extracts product data of rugs
+* **Fields extracted:** name, price, link
+* **Scraping tool:** Scrapy
+* **Libraries/Methods used:** selectors
+* **Exported data:** [output.csv](https://github.com/rohanrvpatil/scraping_concepts/blob/main/basic_scrapy_rugshop/output.csv)
 
 
 
 ## extracting_json:
 
-* **Website:** https://www.petsathome.com/ <br>
-* **Purpose:** Extracts product data of pet toys, accessories, food essentials <br>
-* **Fields extracted:** 28 columns of product details <br>
-* **Scraping tool:** Fetch/XHR tool in Network tab of Console (Extracted json from API) <br>
-* **Libraries/Methods used:** requests <br>
+* **Website:** https://www.petsathome.com/
+* **Purpose:** Extracts product data of pet toys, accessories, food essentials
+* **Fields extracted:** 28 columns of product details
+* **Scraping tool:** Fetch/XHR tool in Network tab of Console (Extracted json from API)
+* **Libraries/Methods used:** requests
 * **Exported data:** [products_data.xlsx](https://github.com/rohanrvpatil/scraping_concepts/blob/main/extracting_json/files/products_data.xlsx), [response_data.json](https://github.com/rohanrvpatil/scraping_concepts/blob/main/extracting_json/files/response_data.json)
 
 
 
 ## html_scraping:
 
-* **Website:** https://www.rei.com/c/downhill-ski-boots <br>
-* **Purpose:** Extracts product data of downhill ski-boots <br>
-* **Fields extracted:**  link, name, product_id, price, rating <br>
-* **Scraping tool:** python-httpx <br>
-* **Libraries/Methods used:** selectors, urljoin, HTMLParser, dataclasses, export functions for csv/xlsx/json <br>
+* **Website:** https://www.rei.com/c/downhill-ski-boots
+* **Purpose:** Extracts product data of downhill ski-boots
+* **Fields extracted:**  link, name, product_id, price, rating
+* **Scraping tool:** python-httpx
+* **Libraries/Methods used:** selectors, urljoin, HTMLParser, dataclasses, export functions for csv/xlsx/json
 * **Exported data:** [data.csv](https://github.com/rohanrvpatil/scraping_concepts/blob/main/html_scraping/data_exports/data.csv), [data.json](https://github.com/rohanrvpatil/scraping_concepts/blob/main/html_scraping/data_exports/data.json), [data.xlsx](https://github.com/rohanrvpatil/scraping_concepts/blob/main/html_scraping/data_exports/data.xlsx)
 
 
