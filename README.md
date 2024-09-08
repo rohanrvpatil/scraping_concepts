@@ -1,3 +1,5 @@
+<mark>This GitHub repository includes web scraping projects built with Scrapy, Selenium, BeautifulSoup, httpx.</mark>
+
 ## basic_scrapy_rugshop:
 
 * **Website:** https://www.therugshopuk.co.uk/rugs-by-room/bedroom-rugs.html
