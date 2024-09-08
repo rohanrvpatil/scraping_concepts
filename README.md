@@ -1,7 +1,3 @@
-This project covers all scraping concepts.
-
-
-
 ## basic_scrapy_rugshop:
 
 * **Website:** https://www.therugshopuk.co.uk/rugs-by-room/bedroom-rugs.html
