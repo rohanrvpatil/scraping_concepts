@@ -1,3 +1,10 @@
+Youtube Link: https://www.youtube.com/watch?v=aIHTgF6polk&list=PLRzwgpycm-Fjvdf7RpmxnPMyJ80RecJjv
+
+Similar projects:
+https://www.youtube.com/watch?v=s4jtkzHhLzY&list=PLRzwgpycm-Fjvdf7RpmxnPMyJ80RecJjv&index=2
+https://www.youtube.com/watch?v=hCARQVJy_mk&list=PLRzwgpycm-Fjvdf7RpmxnPMyJ80RecJjv&index=3
+
+
 CSS selectors:
 
 next_page = response.css("a[title=Next]::attr(href)").get()

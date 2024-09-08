@@ -1,6 +1,4 @@
 import scrapy
-import unidecode
-
 
 class AllrugsSpider(scrapy.Spider):
     name = "allrugs"
@@ -10,12 +8,7 @@ class AllrugsSpider(scrapy.Spider):
     def parse(self, response):
         for item in response.css("div.product-item-info"):
             
-            price=item.css("span.special-price span.price::text").get()
-            
-            # price_bytes = price.encode('utf-8')
-            # decoded_price = price_bytes.decode('utf-8')
-            # price_string = unidecode.unidecode(decoded_price)
-            
+            price=item.css("span.special-price span.price::text").get()        
             
             yield {
                 'title': item.css("img.product-image-photo.image::attr(alt)").get(),
