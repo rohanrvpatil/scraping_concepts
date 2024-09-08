@@ -4,12 +4,12 @@ This project covers all scraping concepts.
 
 ## basic_scrapy_rugshop:
 
-Website: https://www.therugshopuk.co.uk/rugs-by-room/bedroom-rugs.html
-Purpose: Extracts product data of rugs
-Fields extracted: name, price, link
-Scraping tool: Scrapy
-Libraries/Methods used: selectors 
-Exported data: [output.csv](https://github.com/rohanrvpatil/scraping_concepts/blob/main/basic_scrapy_rugshop/output.csv)
+Website: https://www.therugshopuk.co.uk/rugs-by-room/bedroom-rugs.html <br>
+Purpose: Extracts product data of rugs <br>
+Fields extracted: name, price, link <br>
+Scraping tool: Scrapy <br>
+Libraries/Methods used: selectors <br>
+Exported data: [output.csv](https://github.com/rohanrvpatil/scraping_concepts/blob/main/basic_scrapy_rugshop/output.csv) <br>
 
 
 
