@@ -1,4 +1,4 @@
-# Scrapy settings for basic_scrapy_rugshop project
+# Scrapy settings for dynamic_scrapy_splash_beerwulf project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,17 +7,17 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "basic_scrapy_rugshop"
+BOT_NAME = "dynamic_scrapy_splash_beerwulf"
 
-SPIDER_MODULES = ["basic_scrapy_rugshop.spiders"]
-NEWSPIDER_MODULE = "basic_scrapy_rugshop.spiders"
+SPIDER_MODULES = ["dynamic_scrapy_splash_beerwulf.spiders"]
+NEWSPIDER_MODULE = "dynamic_scrapy_splash_beerwulf.spiders"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = "basic_scrapy_rugshop (+http://www.yourdomain.com)"
+#USER_AGENT = "dynamic_scrapy_splash_beerwulf (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -45,13 +45,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    "basic_scrapy_rugshop.middlewares.BasicScrapyRugshopSpiderMiddleware": 543,
+#    "dynamic_scrapy_splash_beerwulf.middlewares.DynamicScrapySplashBeerwulfSpiderMiddleware": 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    "basic_scrapy_rugshop.middlewares.BasicScrapyRugshopDownloaderMiddleware": 543,
+#    "dynamic_scrapy_splash_beerwulf.middlewares.DynamicScrapySplashBeerwulfDownloaderMiddleware": 543,
 #}
 
 # Enable or disable extensions
@@ -63,7 +63,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    "basic_scrapy_rugshop.pipelines.BasicScrapyRugshopPipeline": 300,
+#    "dynamic_scrapy_splash_beerwulf.pipelines.DynamicScrapySplashBeerwulfPipeline": 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -92,3 +92,19 @@ REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
 
+#enable scrapy-splash
+SPLASH_URL = 'http://localhost:8050'
+
+DOWNLOADER_MIDDLEWARES = {
+    'scrapy_splash.SplashCookiesMiddleware': 723,
+    'scrapy_splash.SplashMiddleware': 725,
+    'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810,
+}
+
+SPIDER_MIDDLEWARES = {
+    'scrapy_splash.SplashDeduplicateArgsMiddleware': 100,
+}
+
+#DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
+
+HTTPCACHE_STORAGE = 'scrapy_splash.SplashAwareFSCacheStorage'
