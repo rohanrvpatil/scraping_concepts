@@ -1,4 +1,6 @@
 import scrapy
+from basic_scrapy_rugshop.items import BasicScrapyRugshopItem
+from scrapy.loader import ItemLoader
 
 class AllrugsSpider(scrapy.Spider):
     name = "allrugs"
@@ -6,15 +8,16 @@ class AllrugsSpider(scrapy.Spider):
     start_urls = ["https://www.therugshopuk.co.uk/rugs-by-room/bedroom-rugs.html"]
 
     def parse(self, response):
-        for item in response.css("div.product-item-info"):
+        
+        for product in response.css("div.product-item-info"):
             
-            price=item.css("span.special-price span.price::text").get()        
+            l=ItemLoader(item=BasicScrapyRugshopItem(), selector=product)
             
-            yield {
-                'title': item.css("img.product-image-photo.image::attr(alt)").get(),
-                'price': price,
-                'link': item.css("a.product-item-link::attr(href)").get() 
-            }
+            l.add_css('title', 'img.product-image-photo.image::attr(alt)')
+            l.add_css('price', "span.special-price span.price")
+            l.add_css('link', 'a.product-item-link::attr(href)')
+                    
+            yield l.load_item()
         
         next_page = response.css("a[title=Next]::attr(href)").get()
         if next_page is not None:
