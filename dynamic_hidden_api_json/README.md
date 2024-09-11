@@ -13,5 +13,7 @@ Implementation steps:
 Tips:
 1) Experiment with limit, start with limit=100 and go higher
 2) yielding is a good way to avoid lists of lists
-3) To get params, visit Fetch/XHR in Network Tab. The URL with params will appear after the Search button has
-been clicked
+3) To get params, visit Fetch/XHR in Network Tab. The URL with params will appear after the Search button(if available on the site) has been clicked
+4) Use https://curlconverter.com/ to generate the code from cURL command
+5) Use Postman to analyse response, headers and save the POST, GET requests for future reference
+

@@ -1,6 +1,7 @@
-import requests
 import json
+import requests
 import pandas as pd
+
 
 #to yield products one by one
 def generate_json(offset):
@@ -40,10 +41,25 @@ def generate_json(offset):
     for product in response.json()['products']:
         yield product
 
+
+
+results=[]
+
+#storing all products in results
+#5000 is used since there are 4870 search results for the term 'dog'
+# 100 can be tested with different values
+for offset in range(0,5000,40):
+    for product in generate_json(offset):
+        results.append(product)
+        
+# generating json file        
+with open("./response_data.json", "w") as f:
+    json.dump(results, f)
+
 #converting json to xlsx
-def export_json():
-    with open('./files/response_data.json', 'r') as json_file:
-        json_data = json.load(json_file)
+with open('./response_data.json', 'r') as json_file:
+    json_data = json.load(json_file)
 
     df = pd.json_normalize(json_data)
-    df.to_excel('./files/products_data.xlsx', index=False)
+    df.to_excel('./response_data.xlsx', index=False)
+
